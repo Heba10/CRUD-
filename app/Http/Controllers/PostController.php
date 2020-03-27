@@ -84,4 +84,13 @@ public function update() {
 }
 
 
+public function destroy() {
+    $request = request();
+
+    Post::where('id', $request->post)->delete();
+
+    return redirect()->route('posts.index');
+}
+
+
 }

@@ -28,11 +28,28 @@
                 <td><a href="{{route('posts.show',['post' => $post->id])}}" class="btn btn-primary btn-sm">View Details</a></td>
 
                 <td><a href="{{route('posts.edit',['post' => $post->id])}}" class="btn btn-primary btn-sm">Edit</a></td>
-                <td><a href="" class="btn btn-primary btn-sm">DELETE</a></td>
-                </tr>
+                <td><form id="Form" method="POST" action="{{route('posts.destroy', ['post' => $post->id])}}" >
+            @csrf
+            {{method_field('DELETE')}}
+            <button type="button" onclick="deletePost({{$post->id}})" class="btn btn-danger btn-sm">Delete</button>
+         
+         
+          </form>
+          <script>
+  function deletePost(id) {
+    var Form = document.querySelector(`#Form`);
+
+    var answer = confirm('are you want to delete this post.... ?');
+
+    if(answer) {
+      Form.submit();
+    }
+  }
+</script> </td>
               @endforeach
               </tbody>
             </table>
+            
       </div>
 
 @endsection
