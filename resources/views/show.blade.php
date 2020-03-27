@@ -11,37 +11,11 @@
 
 <body>
 
-<div class="container m-5">
-    
-          <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Description</th>
-                 
-                  <th scope="col">Created At</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($posts as $post)
-                <tr>
-                <!-- //name the col on db -->
-                <th scope="row">{{ $post->id }}</th>
-                  <td>{{ $post->title }}</td>
-                  <td>{{ $post->description }}</td>
-
-                 
-                  <td>{{ $post->created_at }}</td>
-                
-                  <td><a href="{{route('posts.show',['post' => $post->id])}}" class="btn btn-primary btn-sm">View Details</a></td>
-                
-
-                </tr>
-              @endforeach
-              </tbody>
-            </table>
+<div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{$post->title}}</h5>
+          <p class="card-text">{{$post->description}}</p>
+        </div>
       </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
