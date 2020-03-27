@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 use App\Post;
 use App\User;
@@ -45,7 +46,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function store()
+    public function store(PostRequest $request)
     {
          //get the request data
          $request = request();
