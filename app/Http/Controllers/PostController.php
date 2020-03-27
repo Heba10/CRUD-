@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Post;
 use App\User;
 class PostController extends Controller
@@ -70,7 +71,8 @@ public function edit() {
     ]);
 }
 
-public function update(PostRequest $request) {
+public function update() {
+    $request = request();
 
     Post::where('id', $request->post)->update([
         'title' => $request->title,
