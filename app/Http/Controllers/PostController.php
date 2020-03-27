@@ -33,4 +33,28 @@ class PostController extends Controller
            'post' => $post,
        ]);
     }
+
+    public function create()
+    {
+        
+
+        return view('create');
+    }
+
+    public function store()
+    {
+         //get the request data
+         $request = request();
+
+         //store the request data in the db
+         Post::create([
+             'title' => $request->title,
+             'description' =>  $request->description,
+             
+         ]);
+
+         return redirect()->route('posts.index');
+    }
+
+
 }
