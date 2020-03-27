@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\User;
 class PostController extends Controller
 {
     public function index()
     {
         $posts = Post::all();
 
-        return view('index', [
+        return view('posts.index', [
             'posts' => $posts,
         ]);
     }
@@ -29,16 +30,18 @@ class PostController extends Controller
         //theard
         //key->value 
        //send the value to the view
-       return view('show',[
+       return view('posts.show',[
            'post' => $post,
        ]);
     }
 
     public function create()
     {
-        
+        $users = User::all();
 
-        return view('create');
+        return view('posts.create', [
+            'users' => $users
+        ]);
     }
 
     public function store()
