@@ -35,3 +35,6 @@ Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
 Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
 
 Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
