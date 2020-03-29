@@ -15,6 +15,7 @@ class PostController extends Controller
 
         $posts=Post::all();
         $postResource =PostResource::collection($posts);
+        Post::paginate(5);
 
         return $postResource;
 
