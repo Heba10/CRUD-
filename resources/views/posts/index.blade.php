@@ -35,6 +35,7 @@
          
          
           </form>
+          
           <script>
   function deletePost(id) {
     var Form = document.querySelector(`#Form`);
@@ -51,5 +52,7 @@
             </table>
             
       </div>
+
+{{ $posts->links() }}
 
 @endsection

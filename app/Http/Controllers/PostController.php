@@ -9,13 +9,21 @@ use App\Post;
 use App\User;
 class PostController extends Controller
 {
-    public function index()
-    {
-        $posts = Post::all();
+    // public function index()
+    // {
+    //     $posts = Post::all();
 
+    //     return view('posts.index', [
+    //         'posts' => $posts,
+    //     ]);
+    // }
+    public function index() {
+        
+        $posts = Post::paginate(5);
         return view('posts.index', [
-            'posts' => $posts,
-        ]);
+            'posts'=> $posts,
+            ]);
+       
     }
 
     public function show()
