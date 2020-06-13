@@ -14,7 +14,7 @@ class ModifyPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('title',100);
+            $table->integer('title');
             $table->text('description');
         });
     }

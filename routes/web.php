@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
 Route::group(['middleware' => 'auth'], function() {
 Route::get('/posts', 'PostController@index')->name('posts.index');
 
@@ -35,6 +39,8 @@ Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
 Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
 
 Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
+
+
 });
 Auth::routes();
 
@@ -49,3 +55,7 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
+Route::post('pay','PaymentController@payWithpaypal')->name('pay');
+Route::get('status','PaymentController@status')->name('status');
+Route::get('canceled','PaymentController@canceled')->name('canceled');
